@@ -3,11 +3,17 @@
     "command": "dotnet",
     "isShellCommand": true,
     "args": [],
+    "options": {
+        // workaround for build limitations
+        // without any args, .NET uses the directory of current file in editor
+        // otherwise have to use a shell script for build
+        "cwd": "${fileDirname}"
+    },
     "tasks": [
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/DictationProcessor.csproj"
+                // "${workspaceRoot}/DictationProcessorApp/DictationProcessorApp.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
